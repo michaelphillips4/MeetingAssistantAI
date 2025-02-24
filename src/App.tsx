@@ -16,6 +16,12 @@ function App() {
         <summary>AI</summary>
         <AI />
       </details>
+
+      <details>
+        <summary>Notes</summary>
+        TODO add notes
+      </details>
+
     </>
   );
 }
