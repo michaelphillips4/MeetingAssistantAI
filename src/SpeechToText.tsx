@@ -22,14 +22,10 @@ const SpeechToText = ({ isListening }: { isListening: boolean }) => {
     let c = 1;
     let out: string[] = [];
     recognition.onresult = (e: Event) => {
+     
       const speechEvent = e as SpeechRecognitionEvent;
       console.log(speechEvent.results);
-      // let text = Array.from(speechEvent.results)
-      //   .map((result) => result[0].transcript)
-      //   .join("");
-      // c++;
-      // text = transcript.concat(text);
-      out = [];
+       out = [];
       for (const result of speechEvent.results) {
         let text = result[0].transcript;
 
@@ -42,7 +38,7 @@ const SpeechToText = ({ isListening }: { isListening: boolean }) => {
       console.log(c, "on result ", transcript, "text ");
     };
 
-    if (isListening) {
+    if (isListening ===true) {
       console.log("start");
       recognition.start();
     } else {

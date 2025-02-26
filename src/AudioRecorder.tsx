@@ -1,6 +1,7 @@
-import { useState, useRef,useEffect } from "react";
+import { useState, useRef} from "react";
 import { Button } from "@aws-amplify/ui-react";
 import SpeechToText from "./SpeechToText";
+import RecordingMessage from "./RecordingMessage";
 
 const mimeType = "audio/webm";
 
@@ -18,20 +19,8 @@ const AudioRecorder = () => {
 
   const [isListening, setIsListening] = useState<boolean>(false);
 
-  const [count, setCount] = useState(0);
-
-    useEffect(() => {
-       
-        const interval = setInterval(() => {
-              setCount(count === 3 ? 0 :count +1);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, [count]);
-
-
-
   const startRecording = async () => {
-   console.log("start recording running ...");
+
    setIsListening(true);
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({
@@ -41,7 +30,7 @@ const AudioRecorder = () => {
       mediaRecorder.current = new MediaRecorder(mediaStream, { mimeType });
 
       mediaRecorder.current.ondataavailable = (event: BlobEvent) => {
-        console.log("data available event", event);
+      
         if (event.data.size > 0) {
           data.current.push(event.data);
         }
@@ -94,7 +83,7 @@ const AudioRecorder = () => {
         >
           Stop Recording
         </Button>
-          <span> {recordingStatus}{".".repeat(count)}</span>
+         <RecordingMessage />
         
       </>
     );
