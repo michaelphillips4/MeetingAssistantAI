@@ -1,6 +1,7 @@
 import "./App.css";
 import AudioRecorder from "./AudioRecorder";
 import AI from "./AI";
+import Notes from "./Notes";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 
       <details>
         <summary>Notes</summary>
-        TODO add notes
+        <Notes />
       </details>
 
     </>

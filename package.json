@@ -13,7 +13,8 @@
     "@aws-amplify/ui-react": "^6.9.1",
     "aws-amplify": "^6.12.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vocode": "^1.0.37"
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.13.0",
