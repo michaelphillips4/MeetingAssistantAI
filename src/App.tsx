@@ -2,6 +2,7 @@ import "./App.css";
 import AudioRecorder from "./AudioRecorder";
 import AI from "./AI";
 
+
 function App() {
   return (
     <>
@@ -10,6 +11,7 @@ function App() {
       <details>
         <summary>Audio Recorder</summary>
         <AudioRecorder />
+        
       </details>
 
       <details>

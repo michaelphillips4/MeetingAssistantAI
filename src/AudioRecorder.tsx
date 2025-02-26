@@ -1,5 +1,7 @@
 import { useState, useRef,useEffect } from "react";
 import { Button } from "@aws-amplify/ui-react";
+import SpeechToText from "./SpeechToText";
+
 const mimeType = "audio/webm";
 
 const AudioRecorder = () => {
@@ -14,6 +16,7 @@ const AudioRecorder = () => {
 
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
 
+  const [isListening, setIsListening] = useState<boolean>(false);
 
   const [count, setCount] = useState(0);
 
@@ -28,8 +31,8 @@ const AudioRecorder = () => {
 
 
   const startRecording = async () => {
-    console.log("start recording running ...");
-
+   console.log("start recording running ...");
+   setIsListening(true);
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         audio: true,
@@ -63,6 +66,7 @@ const AudioRecorder = () => {
     if (mediaRecorder.current && mediaRecorder.current.state === "recording") {
       mediaRecorder.current.stop();
       setRecordingStatus("inactive");
+      setIsListening(false);
     }
   };
 
@@ -91,7 +95,7 @@ const AudioRecorder = () => {
           Stop Recording
         </Button>
           <span> {recordingStatus}{".".repeat(count)}</span>
-     
+        
       </>
     );
   };
@@ -103,14 +107,18 @@ const AudioRecorder = () => {
       </div>
       {audioUrl != null && (
         <div className="audio-player">
+          {isListening.toString()}
           <br />
-          <audio src={audioUrl} controls></audio>
+          <audio src={audioUrl} controls onPlaying={()=>setIsListening(false)}></audio>
           <br />
-          <a download href={audioUrl}>
+          <a download href={audioUrl} >
             Download Recording
           </a>
         </div>
       )}
+
+      <SpeechToText isListening={isListening}/>
+
     </>
   );
 };
