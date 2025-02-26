@@ -53,7 +53,7 @@ function AI() {
             className="wide-input"
             id="question"
             name="question"
-            placeholder="Type question here ..."
+            placeholder="Type question here ..." style={{"marginRight":"10px"}}
           />
  
           <button type="submit" >

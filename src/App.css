@@ -1,0 +1,139 @@
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --bg: light-dark(white, #100c08);
+--bg-highlight: light-dark(rgb(247, 248, 247), rgb(62, 60, 60));
+--border-color: #100c08;
+--border-radius: 0.25rem;
+}
+
+body {
+  margin: 20px;
+  
+  background-color: rgb(235, 239, 241);
+}
+
+#root {
+  border-radius: 13px;
+  padding: 20px;height: 95vh;
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size:4em}
+
+
+h2{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+.notes 
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.notes > div
+{
+  flex:50%;
+  /* background-color: rgb(255, 195, 30); */
+}
+
+
+button {
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-highlight);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  background-color: var(--bg-highlight);
+  color: inherit;
+  margin: 6px 20px 6px 0;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  width: 80%;
+  border: 2px solid;
+}
+
+
+input,
+select {
+  display: block;
+  min-height: 17px;
+
+}
+
+
+
+section{
+  padding: 30px;
+  margin: 10px;
+  border-radius: var(--border-radius);
+  background-color: rgb(247, 244, 244);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  /* background-color: DodgerBlue; */
+}
+
+.main-content  > div  {
+  /* background-color: #f1f1f1; */
+  
+  padding: 10px;
+}
+
+.main-content  > .main-content-left  {
+  /* background-color: rgb(248, 30, 255); */
+  flex: 70%;
+}
+
+.main-content  > .main-content-right  {
+  /* background-color: rgb(30, 255, 113); */
+  flex: 30%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .main-content-left {
+   
+    width: 96%;
+  }
+}

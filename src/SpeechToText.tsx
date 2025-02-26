@@ -54,7 +54,7 @@ const SpeechToText = ({ isListening }: { isListening: boolean }) => {
 
   return (
     <>
-    {isListening.toString()}
+    {/* {isListening.toString()} */}
       {transcript.map((p, i) => (
         <p key={i} style={{ textTransform: "capitalize" }}>
           {p}
