@@ -7,22 +7,23 @@ import { Authenticator } from "@aws-amplify/ui-react";
 function App() {
   return (
     <>
+     <main >
       <header>
         <Authenticator>
           {({ signOut }) => (
-            <h1>
-              Meeting Assistant
+           <>
               <button
                 style={{ float: "right", fontSize: "small" }}
                 onClick={signOut}
               >
                 Sign out
               </button>
-            </h1>
+            <h1 className="center">
+              Meeting Assistant </h1></>
           )}
         </Authenticator>
       </header>
-      <main className="main-content">
+     <div className="main-content">
         <div className="main-content-left">
           <section>
         <h2>AI</h2>
@@ -37,7 +38,7 @@ function App() {
             <h2>Audio Recorder</h2>
           <AudioRecorder />
           </section>
-          
+          </div>
         </div>
       </main>
     </>

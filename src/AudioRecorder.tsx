@@ -3,7 +3,7 @@ import { Button } from "@aws-amplify/ui-react";
 import SpeechToText from "./SpeechToText";
 import RecordingMessage from "./RecordingMessage";
 
-const mimeType = "audio/webm";
+const mimeType = "audio/mp4";
 
 const AudioRecorder = () => {
 
