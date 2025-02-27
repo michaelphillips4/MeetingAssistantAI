@@ -1,4 +1,4 @@
-import { useState, useRef} from "react";
+import { useState, useRef } from "react";
 import { Button } from "@aws-amplify/ui-react";
 import SpeechToText from "./SpeechToText";
 import RecordingMessage from "./RecordingMessage";
@@ -6,7 +6,6 @@ import RecordingMessage from "./RecordingMessage";
 const mimeType = "audio/mp4";
 
 const AudioRecorder = () => {
-
   const mediaRecorder = useRef<MediaRecorder | null>(null);
 
   const data = useRef<Blob[]>([]);
@@ -20,8 +19,7 @@ const AudioRecorder = () => {
   const [isListening, setIsListening] = useState<boolean>(false);
 
   const startRecording = async () => {
-
-   setIsListening(true);
+    setIsListening(true);
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         audio: true,
@@ -30,7 +28,6 @@ const AudioRecorder = () => {
       mediaRecorder.current = new MediaRecorder(mediaStream, { mimeType });
 
       mediaRecorder.current.ondataavailable = (event: BlobEvent) => {
-      
         if (event.data.size > 0) {
           data.current.push(event.data);
         }
@@ -83,8 +80,7 @@ const AudioRecorder = () => {
         >
           Stop Recording
         </Button>
-         <RecordingMessage />
-        
+        <RecordingMessage />
       </>
     );
   };
@@ -96,18 +92,21 @@ const AudioRecorder = () => {
       </div>
       {audioUrl != null && (
         <div className="audio-player">
-          {isListening.toString()}
-          <br />
-          <audio src={audioUrl} controls onPlaying={()=>setIsListening(false)}></audio>
-          <br />
-          <a download href={audioUrl} >
-            Download Recording
-          </a>
+         <p>
+          <audio
+            src={audioUrl}
+            controls
+            onPlaying={() => setIsListening(false)}
+          ></audio>
+          </p>
+            <a download href={audioUrl}>
+              Download Recording
+            </a>
+         
         </div>
       )}
 
-      <SpeechToText isListening={isListening}/>
-
+      <SpeechToText isListening={isListening} />
     </>
   );
 };
