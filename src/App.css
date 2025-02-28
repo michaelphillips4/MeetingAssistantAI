@@ -28,10 +28,30 @@ section {
 .main-content {
   display: flex;
   flex-direction: row;
-  
 }
 
+.logout {
+  padding: 10px;
+  float: right;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
 
+.message {
+  background-color: var(--bg);
+  border-radius: 8px 30px 30px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.message > span {
+  float: right;
+  padding: 4px;
+}
+.message > span:hover {
+  cursor: pointer;
+}
 
 .main-content > .main-content-left {
   /* background-color: rgb(248, 30, 255); */

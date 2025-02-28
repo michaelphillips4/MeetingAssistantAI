@@ -100,7 +100,7 @@ const AudioRecorder = () => {
           ></audio>
           </p>
             <a download href={audioUrl}>
-              Download Recording
+           Download Recording 
             </a>
          
         </div>

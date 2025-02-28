@@ -53,14 +53,14 @@ const SpeechToText = ({ isListening }: { isListening: boolean }) => {
   }, [isListening]);
 
   return (
-    <>
+    <article className="message">
     {/* {isListening.toString()} */}
       {transcript.map((p, i) => (
         <p key={i} className="speech">
           {p}
         </p>
       ))}
-    </>
+    </article>
   );
 };
 

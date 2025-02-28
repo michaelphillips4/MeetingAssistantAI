@@ -6,7 +6,7 @@ import { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
-
+import { Button } from "@aws-amplify/ui-react";
 
 Amplify.configure(outputs);
 
@@ -56,9 +56,10 @@ function AI() {
             placeholder="Type question here ..." style={{"marginRight":"10px"}}
           />
  
-          <button type="submit" >
+          <Button type="submit" variation="primary"
+          colorTheme="overlay">
             Ask AI a Question
-          </button>
+          </Button> 
      
       </form>
       <div className="result-container">
@@ -71,7 +72,7 @@ function AI() {
             <Placeholder size="large" />
           </div>
         ) : (
-          result && <blockquote>{result}</blockquote>
+          result && <blockquote className="message">{result}</blockquote>
         )}
       </div>
 </>

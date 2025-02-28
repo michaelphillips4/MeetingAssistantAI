@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "@aws-amplify/ui-react";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 type Note = {
   key: number;
@@ -41,22 +43,26 @@ function Notes() {
           value={des}
           onChange={(e) => {
             setDes(e.target.value);
-          }}
+          }} style={{"marginBottom":"0px"}}
         ></textarea>
-<br />
-        <button type="submit" onClick={handle}>
+
+        <Button  variation="primary"
+          colorTheme="overlay" type="submit" onClick={handle}>
           Add Note
-        </button>
+        </Button>
       </div>
       <div>
         <ol>
           {notes.map((e, i) => (
             <li key={i}>
-              <h4>Title: {e.title}</h4>
-              <p>Note: {e.des}</p>
-              <button type="button" onClick={() => remove(e.key)}>
-                Remove
-              </button>
+              <article className="message">
+              <b>{e.title}</b>  <span
+           onClick={() => remove(e.key)}>
+               <RiDeleteBin5Fill />
+              </span>
+              <p>{e.des}</p>
+            
+              </article>
             </li>
           ))}
         </ol>
